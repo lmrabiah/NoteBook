@@ -1,6 +1,6 @@
-// import notebooks from "../notebooks.js";
 import axios from "axios";
 import { makeObservable, observable, action } from "mobx";
+
 class NoteBookStore {
   noteBooks = [];
   loading = true;
@@ -14,17 +14,13 @@ class NoteBookStore {
     });
   }
 
-  // get todayList() {
-  //   return this.noteBooks.filter((noteBook) => !noteBook.done);
-  // }
-
   fetchNoteBooks = async () => {
     try {
       const response = await axios.get("http://localhost:8000/notebooks");
       this.noteBooks = response.data;
       this.loading = false;
     } catch (error) {
-      console.error("ProductStore -> fetchProducts -> error", error);
+      console.error("NoteBookStore -> fetchNoteBooks -> error", error);
     }
   };
 

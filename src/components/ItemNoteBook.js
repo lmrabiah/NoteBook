@@ -1,17 +1,25 @@
-// import { Link } from "react-router-dom";
-//styles
+import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
+import ListNotes from "./ListNotes";
+import notesStore from "../stores/notesStore";
+import { useParams } from "react-router-dom";
+import noteBookStore from "../stores/noteBookStore";
 
 const ItemNoteBook = ({ noteBook }) => {
+  // const { notebookSlug } = useParams();
+  // const noteBook = noteBookStore.noteBooks.find(
+  //   (_notebook) => _notebook.slug === notebookSlug
+  // );
+  // let notes = noteBook.notes.map((note) => notesStore.getNoteById(note.id));
+
   return (
     <div>
-      {/* <Link to={`/products/${product.slug}`}>
-        <ItemImg src={product.img} alt={product.name} />
-      </Link> */}
-
-      <h1>{noteBook.name}</h1>
-      <h1>{noteBook.description}</h1>
+      <Link to={`/notebooks/${noteBook.slug}`}>
+        <h1>{noteBook.name} NoteBook</h1>
+      </Link>
+      {/* <ListNotes notes={notes} /> */}
     </div>
   );
 };
 
-export default ItemNoteBook;
+export default observer(ItemNoteBook);
