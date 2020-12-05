@@ -1,5 +1,6 @@
 import React from "react";
 import AddButton from "./AddButton.js";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -9,7 +10,9 @@ const Home = () => {
           <AddButton />
         </div>
         <div className="row">
-          <h1>NoteBook</h1>
+          <Link to={`/notebooks`}>
+            <h1>My NoteBooks</h1>
+          </Link>
         </div>
       </div>
     </div>
