@@ -8,7 +8,7 @@ const NoteDetail = () => {
   const noteObject = notesStore.notes.find((note) => note.slug === noteSlug);
   return (
     <div>
-      <p>{noteObject.body}</p>;
+      <p>{noteObject.body}</p>
     </div>
   );
 };

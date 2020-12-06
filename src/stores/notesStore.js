@@ -33,6 +33,7 @@ class NotesStore {
         newNote
       );
       this.notes.push(res.data);
+      noteBook.notes.push({ id: res.data.id });
     } catch (error) {
       console.log("TodoStore -> createNote -> error", error);
     }

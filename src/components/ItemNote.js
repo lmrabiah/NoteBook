@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { observer } from "mobx-react";
 const ItemNote = ({ note }) => {
   const Title = styled.h1`
     text-align: center;
@@ -16,4 +17,4 @@ const ItemNote = ({ note }) => {
   );
 };
 
-export default ItemNote;
+export default observer(ItemNote);
