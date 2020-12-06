@@ -1,13 +1,16 @@
 import react from "react";
 import { useState } from "react";
 import Modal from "react-modal";
+import noteBookStore from "../../stores/noteBookStore";
 import notesStore from "../../stores/notesStore";
 
-const NoteModal = ({ isOpen, closeModal, noteBook }) => {
-  const [note, setNote] = useState({
-    title: "",
-    body: "",
-  });
+const NoteModal = ({ isOpen, closeModal, noteBook, oldNote }) => {
+  const [note, setNote] = useState(
+    oldNote ?? {
+      title: "",
+      body: "",
+    }
+  );
 
   const handleChange = (event) => {
     setNote({ ...note, [event.target.name]: event.target.value });
@@ -15,10 +18,13 @@ const NoteModal = ({ isOpen, closeModal, noteBook }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    notesStore["createNote"](note, noteBook);
     closeModal();
-  };
+    // notesStore["createNote"](note, noteBook);
+    // closeModal();
 
+    if (oldNote) notesStore.updateNote(note);
+    else notesStore.createNote(note, noteBook);
+  };
   return (
     <Modal
       isOpen={isOpen}
@@ -49,7 +55,7 @@ const NoteModal = ({ isOpen, closeModal, noteBook }) => {
           />
         </div>
         <button type="submit" onClick={handleSubmit}>
-          create
+          {oldNote ? "update" : "creat"}
         </button>
       </form>
     </Modal>
