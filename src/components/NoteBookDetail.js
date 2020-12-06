@@ -1,9 +1,9 @@
-import React from "react";
 import noteBookStore from "../stores/noteBookStore";
 import noteStore from "../stores/notesStore";
 import { Redirect, useParams } from "react-router-dom";
 import { observer } from "mobx-react";
 import ListNotes from "./ListNotes";
+import AddNote from "./AddNote";
 const NoteBookDetail = () => {
   const notebookSlug = useParams().notebookSlug;
 
@@ -20,7 +20,9 @@ const NoteBookDetail = () => {
     <div>
       <h1> {bookObject.name}</h1>
       <p> {bookObject.description}</p>
-      <ListNotes notes={noteFromNoteStore} />
+      <AddNote noteBook={bookObject} />
+
+      <ListNotes notes={noteFromNoteStore} noteBook={bookObject} />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import Home from "./Home.js";
 import ListNoteBooks from "./ListNoteBooks";
 import NoteBookDetail from "./NoteBookDetail.js";
+import NoteDetail from "./NoteDetail.js";
 
 const Routes = () => {
   return (
@@ -14,11 +15,11 @@ const Routes = () => {
         <Route path="/notebooks/:notebookSlug">
           <NoteBookDetail />
         </Route>
-        {/* <Route path="/notebooks">
-          <ListNoteBooks />
 
-          {/* // noteBooks={noteBookStore.noteBooks} /> */}
-        {/* </Route> */} */}
+        <Route path="/notes/:noteSlug">
+          <NoteDetail />
+        </Route>
+
         <Route path="/">
           <Home />
         </Route>

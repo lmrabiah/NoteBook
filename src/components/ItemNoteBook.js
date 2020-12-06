@@ -6,12 +6,6 @@ import { useParams } from "react-router-dom";
 import noteBookStore from "../stores/noteBookStore";
 
 const ItemNoteBook = ({ noteBook }) => {
-  // const { notebookSlug } = useParams();
-  // const noteBook = noteBookStore.noteBooks.find(
-  //   (_notebook) => _notebook.slug === notebookSlug
-  // );
-  // let notes = noteBook.notes.map((note) => notesStore.getNoteById(note.id));
-
   return (
     <div>
       <Link to={`/notebooks/${noteBook.slug}`}>

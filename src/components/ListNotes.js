@@ -3,8 +3,10 @@ import { observer } from "mobx-react";
 
 import ItemNote from "./ItemNote";
 
-const ListNotes = ({ notes }) => {
-  const List = notes.map((_note) => <ItemNote note={_note} />);
+const ListNotes = ({ notes, noteBook }) => {
+  const List = notes.map((_note) => (
+    <ItemNote note={_note} noteBook={noteBook} />
+  ));
 
   return <>{List}</>;
 };

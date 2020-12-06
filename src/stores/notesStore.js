@@ -16,6 +16,7 @@ class NotesStore {
   }
 
   getNoteById = (noteId) => this.notes.find((note) => note.id === noteId);
+
   fetchNotes = async () => {
     try {
       const response = await axios.get("http://localhost:8000/notes");
@@ -25,17 +26,18 @@ class NotesStore {
       console.error("notesStore -> fetchNotes -> error", error);
     }
   };
-
-  createNote = async (newNote) => {
+  createNote = async (newNote, noteBook) => {
     try {
-      const res = await axios.post("http://localhost:8000/notes", newNote);
+      const res = await axios.post(
+        `http://localhost:8000/notebooks/${noteBook.id}/notes`,
+        newNote
+      );
       this.notes.push(res.data);
     } catch (error) {
       console.log("TodoStore -> createNote -> error", error);
     }
   };
 }
-
 const notesStore = new NotesStore();
 notesStore.fetchNotes();
 
