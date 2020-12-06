@@ -6,20 +6,19 @@ import { BrowserRouter } from "react-router-dom";
 import Home from "./Home.js";
 import ListNoteBooks from "./ListNoteBooks";
 import NoteBookDetail from "./NoteBookDetail.js";
-import ListNotes from "./ListNotes";
+
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/notebooks/:notebookSlug">
           <NoteBookDetail />
-          <ListNotes />
         </Route>
-        <Route path="/notebooks">
+        {/* <Route path="/notebooks">
           <ListNoteBooks />
 
           {/* // noteBooks={noteBookStore.noteBooks} /> */}
-        </Route>
+        {/* </Route> */} */}
         <Route path="/">
           <Home />
         </Route>

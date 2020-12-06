@@ -1,7 +1,7 @@
 import React from "react";
 import AddButton from "./AddButton.js";
-import { Link } from "react-router-dom";
 
+import ListNoteBooks from "./ListNoteBooks";
 const Home = () => {
   return (
     <div>
@@ -10,9 +10,10 @@ const Home = () => {
           <AddButton />
         </div>
         <div className="row">
-          <Link to={`/notebooks`}>
-            <h1>My NoteBooks</h1>
-          </Link>
+          <h1>My NoteBooks</h1>
+          <h1>
+            <ListNoteBooks />
+          </h1>
         </div>
       </div>
     </div>

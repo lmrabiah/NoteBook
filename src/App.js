@@ -6,13 +6,12 @@ import Routes from "./components/Routes";
 
 function App() {
   return (
-    // {/* {noteBookStore.loading || notesStore.loading ? (
-    //   <h1>loaaaaaadinnng</h1>
-    // ) : ( */}
     <>
-      {/* <Home /> */}
-      <Routes />
-      {/* )} */}
+      {noteBookStore.loading || notesStore.loading ? (
+        <h1>loaaaaaadinnng</h1>
+      ) : (
+        <Routes />
+      )}
     </>
   );
 }
