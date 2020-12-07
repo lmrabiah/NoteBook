@@ -9,9 +9,8 @@ const ItemNoteBook = ({ noteBook }) => {
   return (
     <div>
       <Link to={`/notebooks/${noteBook.slug}`}>
-        <h1>{noteBook.name} NoteBook</h1>
+        <h4>{noteBook.name} NoteBook</h4>
       </Link>
-      {/* <ListNotes notes={notes} /> */}
     </div>
   );
 };

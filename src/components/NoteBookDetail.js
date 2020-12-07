@@ -3,7 +3,8 @@ import noteStore from "../stores/notesStore";
 import { Redirect, useParams } from "react-router-dom";
 import { observer } from "mobx-react";
 import ListNotes from "./ListNotes";
-import AddNote from "./AddNote";
+import AddNoteButton from "./AddNoteButton";
+
 const NoteBookDetail = () => {
   const notebookSlug = useParams().notebookSlug;
 
@@ -17,12 +18,20 @@ const NoteBookDetail = () => {
 
   if (!bookObject) return <Redirect to="/notebooks" />;
   return (
-    <div>
-      <h1> {bookObject.name}</h1>
-      <p> {bookObject.description}</p>
-      <AddNote noteBook={bookObject} />
-
-      <ListNotes notes={noteFromNoteStore} noteBook={bookObject} />
+    <div className="container px-lg-5">
+      <div className="row"></div>
+      <hr />
+      <div className="row">
+        <h1>{bookObject.name} NoteBook</h1>
+        <AddNoteButton noteBook={bookObject} />
+      </div>
+      <div className="row">
+        <p> {bookObject.description}</p>
+      </div>
+      <hr />
+      <div className="row">
+        <ListNotes notes={noteFromNoteStore} noteBook={bookObject} />
+      </div>
     </div>
   );
 };

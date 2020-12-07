@@ -1,36 +1,25 @@
 import React from "react";
 import notesStore from "../stores/notesStore";
-import noteBookStore from "../stores/noteBookStore";
-
 import { useParams } from "react-router-dom";
-
-import AddNote from "./AddNote";
+import UpdateNoteButton from "./UpdateNoteButton";
+import { observer } from "mobx-react";
 
 const NoteDetail = () => {
-  // ////not sure
-  // const notebookSlug = useParams().notebookSlug;
-
-  // const bookObject = noteBookStore.noteBooks.find(
-  //   (book) => book.slug === notebookSlug
-  // );
-
-  // const noteFromNoteStore = bookObject.notes.map((note) =>
-  //   noteStore.getNoteById(note.id)
-  // );
-
-  // //
   const noteSlug = useParams().noteSlug;
-
   const noteObject = notesStore.notes.find((note) => note.slug === noteSlug);
-  // const noteFromNoteStore = noteObject.notes.map((note) =>
-  //   notesStore.getNoteById(note.id)
-  // );
+
   return (
-    <div>
-      <p>{noteObject.body}</p>
-      <AddNote note={noteObject} />
+    <div className="container px-lg-5">
+      <hr />
+      <div className="row" class="border border-primary">
+        <UpdateNoteButton
+          note={noteObject}
+          style={{ margin: 20, float: "right" }}
+        />
+        <h3>{noteObject.body}</h3>
+      </div>
     </div>
   );
 };
 
-export default NoteDetail;
+export default observer(NoteDetail);

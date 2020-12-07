@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 
 //components
 import Home from "./Home.js";
-import ListNoteBooks from "./ListNoteBooks";
 import NoteBookDetail from "./NoteBookDetail.js";
 import NoteDetail from "./NoteDetail.js";
 

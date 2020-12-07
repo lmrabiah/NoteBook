@@ -10,11 +10,7 @@ const ListNoteBooks = () => {
     <ItemNoteBook noteBook={_noteBook} />
   ));
 
-  return (
-    <>
-      <p>{List}</p>
-    </>
-  );
+  return <p>{List}</p>;
 };
 
 export default observer(ListNoteBooks);

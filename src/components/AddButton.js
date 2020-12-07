@@ -12,9 +12,10 @@ const AddButton = () => {
       <button
         onClick={openModal}
         type="button"
-        className="btn btn-outline-primary "
+        className="btn btn-outline-success "
+        style={{ height: 45, margin: 10, float: "right" }}
       >
-        New NoteBook{" "}
+        New
       </button>
       <NoteBooksModal isOpen={isOpen} closeModal={closeModal} />
     </>

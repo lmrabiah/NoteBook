@@ -6,14 +6,15 @@ const Home = () => {
   return (
     <div>
       <div className="container px-lg-5">
-        <div className="row">
-          <AddButton />
-        </div>
+        <div className="row"></div>
+        <hr />
         <div className="row">
           <h1>My NoteBooks</h1>
-          <h1>
-            <ListNoteBooks />
-          </h1>
+          <AddButton />
+        </div>
+        <hr />
+        <div className="row">
+          <ListNoteBooks />
         </div>
       </div>
     </div>

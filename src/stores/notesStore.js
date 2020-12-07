@@ -1,5 +1,6 @@
 import axios from "axios";
 import { makeObservable, observable, action } from "mobx";
+import slugify from "react-slugify";
 
 class NotesStore {
   notes = [];
@@ -42,17 +43,14 @@ class NotesStore {
 
   updateNote = async (updatedNote) => {
     try {
-      const formData = new FormData();
-
-      for (const key in updatedNote) formData.append(key, updatedNote[key]);
-      console.log(updatedNote.id);
       await axios.put(
         `http://localhost:8000/notes/${updatedNote.id}`,
-        formData
+        updatedNote
       );
-
+      //update in the frontend
       const note = this.notes.find((note) => note.id === updatedNote.id);
       for (const key in updatedNote) note[key] = updatedNote[key];
+      note.slug = slugify(note.title);
     } catch (error) {
       console.error(error);
     }
